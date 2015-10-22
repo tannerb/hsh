@@ -1,6 +1,11 @@
 module Lib
-    ( someFunc
+    ( joinStr,
+      printName
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+
+joinStr :: [[a]] -> [a]
+joinStr xs = concat xs
+
+printName :: String ->  IO ()
+printName xs = putStrLn $ "Name: " ++ xs ++ "."
