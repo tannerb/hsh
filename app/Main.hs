@@ -10,7 +10,8 @@ createMapping :: [Int]-> [Int]
 createMapping [] = []
 createMapping xs = 
   (div (head xs) (maximum xs)) : 
-  (createMapping' (maximum xs) (tail xs))
+  (createMapping' 
+    (maximum xs) (tail xs))
 
 -- | algorithm
 -- sort xs
