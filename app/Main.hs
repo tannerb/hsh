@@ -1,19 +1,36 @@
 module Main where
 
-import Lib
+import Prelude hiding (putStr)
 
---line :: Int -> [a]
---line n = replicate n n
+import Data.Array
+import Data.ByteString.Char8 (putStr)
+import Data.ByteString.UTF8 (fromString)
 
+createMapping :: [Int]-> [Int]
+createMapping [] = []
+createMapping xs = 
+  (div (head xs) (maximum xs)) : 
+  (createMapping' (maximum xs) (tail xs))
 
-makeGraph :: [[a]] -> IO ()
+-- | algorithm
+-- sort xs
+-- shrink or expand xs to length of bars
+-- 
+
+createMapping':: Int -> [Int] -> [Int]
+createMapping' _ [] = []
+createMapping' mx [x] = [div x mx]
+createMapping' mx (x:xs) = 
+  (div ((head xs) - x) mx) : (createMapping' mx xs)
+
+bars = "▁▂▃▄▅▆▇"
+
+barsArray = listArray (1, length bars) bars
+
+makeGraph :: [Int] -> IO ()
 makeGraph xs = do
-  putStrLn $ "hello"
+  putStrLn $ show $ createMapping [13,27,29,31,49,61,83,102]
 
 
 main :: IO ()
-main = do
-  putStrLn "Enter your name"
-  xs <- getLine
-  putStrLn $ "hello, " ++ xs ++ "!"
-  --ticks="▁ ▂ ▃ ▄ ▅ ▆ ▇ █"
+main = makeGraph [1,2,3,3,2,3,4,2,3,2,1,1,2]
