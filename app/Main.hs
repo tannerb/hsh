@@ -1,5 +1,10 @@
 module Main where
 
+import Graphics.Rendering.OpenGL as OpenGL
+import Graphics.UI.GLFW as GLFW
+import Control.Monad
+import System.Exit (exitWith, ExitCode(..))
+
 import Prelude hiding (putStr)
 
 import Data.Array

@@ -23,14 +23,15 @@ executable hsh-exe
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  other-modules:       
   build-depends:       base
+                     , OpenGL
+                     , GLFW-b
                      , hsh
                      , utf8-string
                      , bytestring
                      , array
-                     , OpenGl
-                     , bindings-GLFW
-                     , GLFW-b
+
   default-language:    Haskell2010
 
 test-suite hsh-test
