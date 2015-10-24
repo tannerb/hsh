@@ -1,4 +1,6 @@
 dist/
 
+.stack-work/
+
 hsh.sublime-workspace
 hsh.sublime-project
